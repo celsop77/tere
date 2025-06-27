@@ -11,7 +11,7 @@ fastify.get('/produtos', (request, reply) => {
 
         conn.query('SELECT id, nome, preco, categoria FROM produtos;' , (_err,rows) =>{
             console.log(rows) 
-            return rows  
+            reply.send(rows) 
         })
     
 
@@ -26,7 +26,7 @@ fastify.get('/produtos', (request, reply) => {
 
 })
 
-fastify.listen({ port: 8001 }, (err, address) => {
+fastify.listen({ port: 3306 }, (err, address) => {
 
     if (err) throw err
 
